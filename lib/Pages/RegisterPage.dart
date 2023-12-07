@@ -144,7 +144,7 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
 
                 //Sign Up Con
                 InkWell(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage())),
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginPage())),
                   child: Container(
                     margin: EdgeInsets.only(top: height*0.04,bottom: height*0.02),
                     alignment: Alignment.center,
@@ -164,7 +164,7 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
 
                 //Login Row
                 InkWell(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage())),
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginPage())),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

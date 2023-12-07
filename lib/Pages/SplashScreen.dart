@@ -94,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     style: TextStyle(
                       color: white,
                       fontFamily: "OpenSans_Bold",
-                      fontSize: MediaQuery.sizeOf(context).height*0.05
+                      fontSize: MediaQuery.sizeOf(context).height*0.04
                     ),),
 
                     SizedBox(height: MediaQuery.sizeOf(context).height*0.02),
@@ -104,7 +104,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       style: TextStyle(
                           color: white.withOpacity(0.7),
                           fontFamily: "OpenSans_SemiBold",
-                          fontSize: MediaQuery.sizeOf(context).height*0.024
+                          fontSize: MediaQuery.sizeOf(context).height*0.02
                       ),),
 
 
@@ -131,38 +131,41 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     //Login Row
                     InkWell(
                       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage())),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                      child: Container(
+                        padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.015,top: MediaQuery.sizeOf(context).height*0.015),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
 
-                          RichText(
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            text:  TextSpan(
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: 'Already have an account? ',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      fontFamily: "",
-                                      fontSize: MediaQuery.sizeOf(context).height*0.018,
-                                      color: white.withOpacity(0.7)),
-                                ),
-                                TextSpan(
-                                  style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                      color: primaryColor,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: MediaQuery.sizeOf(context).height*0.018),
-                                  text:
-                                  'Login',
-                                ),
-                              ],
+                            RichText(
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              text:  TextSpan(
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: 'Already have an account? ',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontFamily: "",
+                                        fontSize: MediaQuery.sizeOf(context).height*0.018,
+                                        color: white.withOpacity(0.7)),
+                                  ),
+                                  TextSpan(
+                                    style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                        color: primaryColor,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: MediaQuery.sizeOf(context).height*0.018),
+                                    text:
+                                    'Login',
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
 
-                        ],
+                          ],
+                        ),
                       ),
                     )
 
