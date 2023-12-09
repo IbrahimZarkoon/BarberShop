@@ -45,6 +45,7 @@ dependencies:
   share: ^2.0.4
   intl: ^0.17.0
   stylish_bottom_bar: ^1.0.3
+  flutter_circular_text: ^0.3.1
 
 dev_dependencies:
   flutter_test:

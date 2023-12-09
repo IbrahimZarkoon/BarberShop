@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../Constants/colors.dart';
+
 Widget timingsCon(BuildContext context, String day, String timing,bool last)
 {
   DateTime now = DateTime.now();
@@ -8,7 +10,8 @@ Widget timingsCon(BuildContext context, String day, String timing,bool last)
 
   return Container(
     decoration: BoxDecoration(
-        color: currentDay == day ? const Color(0xfff1f1f1) : Colors.transparent
+        color: currentDay == day ?  primaryColor : Colors.transparent,
+      borderRadius: BorderRadius.circular(7)
     ),
     margin: EdgeInsets.only(left: 10,right: 10,bottom: last? 0 : 15),
     padding: EdgeInsets.only(left: 5,right: 5,top: currentDay == day ? 5:0, bottom: currentDay == day ? 5:0),

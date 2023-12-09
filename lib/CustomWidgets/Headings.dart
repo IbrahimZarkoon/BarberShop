@@ -11,7 +11,7 @@ Widget headings(context,String heading)
       Text(heading,
       maxLines: 1,
           style: TextStyle(
-            color: white,
+            color: black,
             fontSize: MediaQuery.sizeOf(context).height*0.025,
             fontFamily: "OpenSans_Bold"
           ),),
