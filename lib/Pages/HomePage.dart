@@ -30,16 +30,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: black,
-      endDrawer: Drawer(
-        elevation: 10,
-        clipBehavior: Clip.hardEdge,
-        shadowColor: Colors.black.withOpacity(0.5),
-        child: CustomDrawer(),
-      ),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
-        child: CustomAppBar(),
-      ),
+      // endDrawer: Drawer(
+      //   elevation: 10,
+      //   clipBehavior: Clip.hardEdge,
+      //   shadowColor: Colors.black.withOpacity(0.5),
+      //   child: CustomDrawer(),
+      // ),
+      // appBar: PreferredSize(
+      //   preferredSize: Size.fromHeight(kToolbarHeight),
+      //   child: CustomAppBar(),
+      // ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         padding: EdgeInsets.only(top: kToolbarHeight - 15),
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                                   fontFamily: "OpenSans_Bold",
                                 ),
                               ),
-                              space: MediaQuery.sizeOf(context).height * 0.0125,
+                              space: MediaQuery.sizeOf(context).height * 0.009,
                               startAngle: -90,
                               startAngleAlignment: StartAngleAlignment.center,
                               direction: CircularTextDirection.clockwise,
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                 Positioned(
                     left: 30,
                     right: 30,
-                    top: 15,
+                    top: 0,
                     bottom: 15,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                 //Services Positioned
                 Positioned(
                     left: 0,
-                    top: MediaQuery.sizeOf(context).height * 0.175,
+                    top: MediaQuery.sizeOf(context).height * 0.15,
                     right: 0,
                     bottom: 0,
                     child: Container(

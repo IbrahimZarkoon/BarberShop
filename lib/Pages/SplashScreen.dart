@@ -107,7 +107,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                           fontSize: MediaQuery.sizeOf(context).height*0.02
                       ),),
 
-
                     //Join Now Con
                     InkWell(
                       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => RegisterPage())),

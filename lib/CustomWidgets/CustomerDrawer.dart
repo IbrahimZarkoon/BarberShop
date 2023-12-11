@@ -1,3 +1,4 @@
+import 'package:barbershop/Pages/LoginPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).width*0.015,bottom: MediaQuery.sizeOf(context).width*0.015),
+      padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height*0.025,bottom: MediaQuery.sizeOf(context).height*0.025),
       height: MediaQuery.sizeOf(context).height,
       color: white,
       child: Column(
@@ -29,25 +30,25 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
           Container(
               height: MediaQuery.sizeOf(context).height*0.1,
-              child: Image.asset("assets/images/neraPOS_logo.png",)
+              child: Image.asset("assets/images/logo.png",)
           ),
 
-          SizedBox(height: MediaQuery.sizeOf(context).width*0.05,),
+          SizedBox(height: MediaQuery.sizeOf(context).height*0.05,),
 
           InkWell(
-              onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (_) => DashboardPage(tabindex: 0))),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DashboardPage(tabindex: 0))),
               child: drawerCon("HOME")),
 
           InkWell(
-              onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (_) => DashboardPage(tabindex: 3))),
-              child: drawerCon("Profile")),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DashboardPage(tabindex: 1))),
+              child: drawerCon("Barbers")),
 
           InkWell(
-              //onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (_) => SettingsPage())),
-              child: drawerCon("Settings")),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DashboardPage(tabindex: 2))),
+              child: drawerCon("Appointments")),
 
           InkWell(
-              //
+              onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (_) => LoginPage())),
               child: drawerCon("Logout")),
 
         ],
@@ -61,13 +62,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: black.withOpacity(0.2),width: 0.5))
       ),
-      padding: EdgeInsets.all(MediaQuery.sizeOf(context).width*0.02),
+      padding: EdgeInsets.all(MediaQuery.sizeOf(context).height*0.02),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
 
-          Text(title,style: TextStyle(color: black,fontSize: MediaQuery.sizeOf(context).width*0.014),)
+          Text(title,style: TextStyle(color: black,fontSize: MediaQuery.sizeOf(context).height*0.024),)
         ],
       ),
     );
@@ -79,13 +80,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
       decoration: islast? BoxDecoration() : BoxDecoration(
           border: Border(bottom: BorderSide(color: black.withOpacity(0.2),width: 0.5))
       ),
-      padding: EdgeInsets.all(MediaQuery.sizeOf(context).width*0.015),
+      padding: EdgeInsets.all(MediaQuery.sizeOf(context).height*0.015),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
 
-          Text(title,style: TextStyle(color: Colors.black,fontSize: MediaQuery.sizeOf(context).width*0.012),)
+          Text(title,style: TextStyle(color: Colors.black,fontSize: MediaQuery.sizeOf(context).height*0.012),)
         ],
       ),
     );
@@ -99,17 +100,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
       ),
       child: ExpansionTile(
         //childrenPadding: EdgeInsets.all(20),
-        tilePadding: EdgeInsets.only(right: MediaQuery.sizeOf(context).width*0.015),
+        tilePadding: EdgeInsets.only(right: MediaQuery.sizeOf(context).height*0.015),
         iconColor: black,
         collapsedIconColor: black,
         title: Padding(
-          padding:  EdgeInsets.only(top: MediaQuery.sizeOf(context).width*0.015,bottom: MediaQuery.sizeOf(context).width*0.015,left: MediaQuery.sizeOf(context).width*0.02),
+          padding:  EdgeInsets.only(top: MediaQuery.sizeOf(context).height*0.015,bottom: MediaQuery.sizeOf(context).height*0.015,left: MediaQuery.sizeOf(context).height*0.02),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
 
-              Text(title,style: TextStyle(color: black,fontSize: MediaQuery.sizeOf(context).width*0.014,fontWeight: FontWeight.normal),)
+              Text(title,style: TextStyle(color: black,fontSize: MediaQuery.sizeOf(context).height*0.014,fontWeight: FontWeight.normal),)
             ],
           ),
         ),

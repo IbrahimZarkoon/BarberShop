@@ -14,14 +14,14 @@ Widget timingsCon(BuildContext context, String day, String timing,bool last)
       borderRadius: BorderRadius.circular(7)
     ),
     margin: EdgeInsets.only(left: 10,right: 10,bottom: last? 0 : 15),
-    padding: EdgeInsets.only(left: 5,right: 5,top: currentDay == day ? 5:0, bottom: currentDay == day ? 5:0),
+    padding: EdgeInsets.only(left: 10,right: 10,top: currentDay == day ? 5:0, bottom: currentDay == day ? 5:0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
 
-        Text(day,style: TextStyle(fontWeight: currentDay == day ? FontWeight.bold : FontWeight.normal,color: Colors.black.withOpacity(0.8),fontSize: currentDay == day ? 14 : 13),),
+        Text(day,style: TextStyle(fontWeight: currentDay == day ? FontWeight.bold : FontWeight.normal,color: Colors.black.withOpacity(0.8),fontSize: currentDay == day ? MediaQuery.sizeOf(context).height*0.018 : MediaQuery.sizeOf(context).height*0.016),),
 
-        Text(timing,style: TextStyle(fontWeight: currentDay == day ? FontWeight.bold : FontWeight.normal,color: Colors.black.withOpacity(0.8),fontSize: currentDay == day ? 14 : 13),)
+        Text(timing,style: TextStyle(fontWeight: currentDay == day ? FontWeight.bold : FontWeight.normal,color: Colors.black.withOpacity(0.8),fontSize: currentDay == day ? MediaQuery.sizeOf(context).height*0.018 : MediaQuery.sizeOf(context).height*0.016),)
       ],
     ),
   );

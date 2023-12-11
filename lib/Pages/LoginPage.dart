@@ -13,7 +13,8 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin{
+class _LoginPageState extends State<LoginPage>
+    with SingleTickerProviderStateMixin {
   final TextEditingController _emailCtrl = TextEditingController();
   final TextEditingController _passCtrl = TextEditingController();
 
@@ -25,24 +26,23 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
   late AnimationController _controller;
   late Animation<Offset> _animation;
 
-
   @override
   void initState() {
     super.initState();
 
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 750), // Adjust the duration of the animation.
+      duration: const Duration(
+          milliseconds: 750), // Adjust the duration of the animation.
     );
 
     _animation = Tween<Offset>(
       begin: const Offset(1.0, 0.0),
       end: Offset.zero,
-    ).animate(
-        CurvedAnimation(
-          parent: _controller,
-          curve: Curves.easeInOut, // Adjust the animation curve.
-        ));
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut, // Adjust the animation curve.
+    ));
 
     // Start the animation when the screen is loaded.
     _controller.forward();
@@ -71,7 +71,8 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
         child: SafeArea(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-            padding: EdgeInsets.only(top: height * 0.04,left: height * 0.02,right: height * 0.02),
+            padding: EdgeInsets.only(
+                top: height * 0.04, left: height * 0.02, right: height * 0.02),
             scrollDirection: Axis.vertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,7 +105,6 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-
                     // CupertinoSwitch(
                     //     activeColor: Color(0xff84ce41),
                     //     value: rememberMe, onChanged: (value){
@@ -116,58 +116,67 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
 
                     const Spacer(),
 
-                    Text("Forgot password",style: TextStyle(color:primaryColor,fontFamily: "OpenSans_Bold",fontSize: height*0.016),)
+                    Text(
+                      "Forgot password",
+                      style: TextStyle(
+                          color: primaryColor,
+                          fontFamily: "OpenSans_Bold",
+                          fontSize: height * 0.016),
+                    )
                   ],
                 ),
 
                 //Login Con
                 InkWell(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DashboardPage(tabindex: 0))),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => DashboardPage(tabindex: 0))),
                   child: Container(
-                    margin: EdgeInsets.only(top: height*0.04),
+                    margin: EdgeInsets.only(top: height * 0.04),
                     alignment: Alignment.center,
-                    padding: EdgeInsets.all(MediaQuery.sizeOf(context).height*0.015),
+                    padding: EdgeInsets.all(
+                        MediaQuery.sizeOf(context).height * 0.015),
                     decoration: BoxDecoration(
                         color: primaryColor,
-                        borderRadius: BorderRadius.circular(15)
-                    ),
-                    child: Text("Login",
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Text(
+                      "Login",
                       style: TextStyle(
                           color: black,
                           fontFamily: "OpenSans_Bold",
-                          fontSize: MediaQuery.sizeOf(context).height*0.02
-                      ),),
+                          fontSize: MediaQuery.sizeOf(context).height * 0.02),
+                    ),
                   ),
                 ),
 
                 Container(
-                  margin: EdgeInsets.only(top: height*0.04,bottom: height*0.04),
+                  margin: EdgeInsets.only(
+                      top: height * 0.04, bottom: height * 0.04),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-
                       Expanded(
                         child: Container(
                           height: 1,
                           color: white.withOpacity(0.7),
                         ),
                       ),
-
-                      Text(" Or Login With ",
+                      Text(
+                        " Or Login With ",
                         maxLines: 1,
                         style: TextStyle(
                             color: white.withOpacity(0.9),
                             fontFamily: "OpenSans_SemiBold",
-                            fontSize: MediaQuery.sizeOf(context).height*0.016
-                        ),),
-
+                            fontSize:
+                                MediaQuery.sizeOf(context).height * 0.016),
+                      ),
                       Expanded(
                         child: Container(
                           height: 1,
                           color: white.withOpacity(0.7),
                         ),
                       ),
-
                     ],
                   ),
                 ),
@@ -176,16 +185,14 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
                     signUpCon("Google",
                         "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"),
 
-                     SizedBox(width:height*0.03),
+                    SizedBox(width: height * 0.03),
 
                     //FACEBOOK Container
                     signUpCon("Facebook",
-                        "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/122_Facebook_F_logo_logos-512.png"
-                    )
+                        "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/122_Facebook_F_logo_logos-512.png")
 
                     //Last Name Container
                   ],
@@ -193,23 +200,24 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
 
                 //Register Row
                 InkWell(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => RegisterPage())),
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => RegisterPage())),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-
                       RichText(
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        text:  TextSpan(
+                        text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
                               text: 'Don\'t have an account? ',
                               style: TextStyle(
                                   fontWeight: FontWeight.normal,
                                   fontFamily: "",
-                                  fontSize: MediaQuery.sizeOf(context).height*0.018,
+                                  fontSize:
+                                      MediaQuery.sizeOf(context).height * 0.018,
                                   color: white.withOpacity(0.7)),
                             ),
                             TextSpan(
@@ -217,14 +225,13 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                   decoration: TextDecoration.underline,
                                   color: primaryColor,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: MediaQuery.sizeOf(context).height*0.018),
-                              text:
-                              'Sign Up',
+                                  fontSize: MediaQuery.sizeOf(context).height *
+                                      0.018),
+                              text: 'Sign Up',
                             ),
                           ],
                         ),
                       ),
-
                     ],
                   ),
                 )
@@ -236,41 +243,39 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     );
   }
 
-  Widget signUpCon(String title, String imgURL)
-  {
+  Widget signUpCon(String title, String imgURL) {
     double height = MediaQuery.sizeOf(context).height;
     double width = MediaQuery.sizeOf(context).width;
     return Expanded(
       child: Container(
-          padding: EdgeInsets.all(height*0.01),
-          margin:  EdgeInsets.only(bottom: height*0.03),
+          padding: EdgeInsets.all(height * 0.01),
+          margin: EdgeInsets.only(bottom: height * 0.03),
 
           //alignment: Alignment.center,
-          width: MediaQuery.of(context).size.width*0.4,
+          width: MediaQuery.of(context).size.width * 0.4,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             //border: Border.all(width: 2),
             color: Colors.white.withOpacity(0.4),
           ),
-
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
               Container(
-                  width: height*0.04, height: height*0.04 ,
-                  child:  Image(image: NetworkImage(imgURL),fit: BoxFit.cover,)),
-
-
-              SizedBox(width:height*0.01),
-
-
-              Text(title,style: TextStyle(color: white),)
-
+                  width: height * 0.04,
+                  height: height * 0.04,
+                  child: Image(
+                    image: NetworkImage(imgURL),
+                    fit: BoxFit.cover,
+                  )),
+              SizedBox(width: height * 0.01),
+              Text(
+                title,
+                style: TextStyle(color: white),
+              )
             ],
-          )
-      ),
+          )),
     );
   }
 
@@ -288,15 +293,16 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       ),
       child: TextField(
         cursorColor: white,
-
-        style: TextStyle(color: Colors.white.withOpacity(1), fontSize: height * 0.018),
+        style: TextStyle(
+            color: Colors.white.withOpacity(1), fontSize: height * 0.018),
         focusNode: _emailNode,
         controller: _emailCtrl,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(left: 5),
           border: InputBorder.none,
           hintText: "Username / Email",
-          hintStyle: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: height * 0.018),
+          hintStyle: TextStyle(
+              color: Colors.white.withOpacity(0.7), fontSize: height * 0.018),
           icon: Icon(CupertinoIcons.person, color: Colors.white.withOpacity(1)),
           alignLabelWithHint: true, // Align hint text with the center
         ),
@@ -321,7 +327,8 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
           Expanded(
             child: TextField(
               cursorColor: white,
-              style: TextStyle(color: Colors.white.withOpacity(1), fontSize: height * 0.018),
+              style: TextStyle(
+                  color: Colors.white.withOpacity(1), fontSize: height * 0.018),
               controller: _passCtrl,
               focusNode: _passNode,
               obscureText: obPass,
@@ -329,8 +336,11 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                 contentPadding: const EdgeInsets.only(left: 5),
                 border: InputBorder.none,
                 hintText: "Password",
-                hintStyle: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: height * 0.018),
-                icon: Icon(CupertinoIcons.lock, color: Colors.white.withOpacity(1)),
+                hintStyle: TextStyle(
+                    color: Colors.white.withOpacity(0.7),
+                    fontSize: height * 0.018),
+                icon: Icon(CupertinoIcons.lock,
+                    color: Colors.white.withOpacity(1)),
                 alignLabelWithHint: true, // Align hint text with the center
               ),
             ),

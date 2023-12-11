@@ -101,13 +101,13 @@ flutter:
   fonts:
     - family: OpenSans
       fonts:
-        - asset: assets/fonts/OpenSans/OpenSans-Regular.ttf
+        - asset: assets/fonts/Teko/Teko-Regular.ttf
     - family: OpenSans_Bold
       fonts:
-        - asset: assets/fonts/OpenSans/OpenSans-Bold.ttf
+        - asset: assets/fonts/Teko/Teko-Bold.ttf
     - family: OpenSans_SemiBold
       fonts:
-        - asset: assets/fonts/OpenSans/OpenSans-Medium.ttf
+        - asset: assets/fonts/Teko/Teko-SemiBold.ttf
     - family: OpenSans_Medium
       fonts:
         - asset: assets/fonts/OpenSans/OpenSans-Light.ttf

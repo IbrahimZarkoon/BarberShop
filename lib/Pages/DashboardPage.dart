@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:barbershop/Pages/HomePage.dart';
+import 'package:barbershop/Pages/StaffPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
@@ -23,7 +24,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
 
   final userTabs = [
     HomePage(),
-    Container(width: 100,height: 100,color: Colors.red,),
+    StaffPage(),
     SizedBox(),
     SizedBox(),
     SizedBox()
@@ -51,9 +52,14 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
         backgroundColor: black,
         endDrawer: Drawer(
           elevation: 10,
-          clipBehavior: Clip.hardEdge,
+          clipBehavior: Clip.none,
           shadowColor: Colors.black.withOpacity(0.5),
           child:  CustomDrawer(),
+        ),
+
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+          child: CustomAppBar(),
         ),
 
         body: RepaintBoundary(

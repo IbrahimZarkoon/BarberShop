@@ -21,10 +21,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
       //     child: Icon(Icons.menu,size: 25,color: Color(0xff00afef),)),
       leadingWidth: 0,
       centerTitle: false,
-      // title: SizedBox(
-      //     width: MediaQuery.sizeOf(context).width,
-      //     height: kToolbarHeight*0.75,
-      //     child: Image.asset("assets/images/logo.png",fit: BoxFit.contain,alignment: Alignment.centerLeft,)),
+      title: SizedBox(
+          width: MediaQuery.sizeOf(context).width*0.5,
+          height: kToolbarHeight*0.8,
+          child: Image.asset("assets/images/logo.png",fit: BoxFit.scaleDown,alignment: Alignment.centerLeft,color:Colors.white.withOpacity(1),)),
       automaticallyImplyLeading: false,
 
       actions: [
