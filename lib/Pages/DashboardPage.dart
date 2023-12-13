@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:barbershop/Pages/BookingsPage.dart';
 import 'package:barbershop/Pages/HomePage.dart';
 import 'package:barbershop/Pages/StaffPage.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,8 +26,13 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
   final userTabs = [
     HomePage(),
     StaffPage(),
+
+    //Book Now Tabs Start
     SizedBox(),
     SizedBox(),
+    //Book Now Tabs End
+
+    BookingsPage(),
     SizedBox()
   ];
 
@@ -39,7 +45,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this,initialIndex: widget.tabindex);
+    _tabController = TabController(length: 6, vsync: this,initialIndex: widget.tabindex);
   }
 
 
@@ -83,10 +89,14 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
               activeColor: primaryColor,
               inactiveColor: white.withOpacity(0.6),
               onTap: (index) {
-                setState(() {
-                  widget.tabindex = index;
-                  _tabController.animateTo(index);
-                });
+                if(index != 2 && index != 3)
+
+                {
+                    setState(() {
+                      widget.tabindex = index;
+                      _tabController.animateTo(index);
+                    });
+                  }
               },
               items:  <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
@@ -101,8 +111,9 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                     size: MediaQuery.sizeOf(context).height*0.035,
                   ),
                 ),
+
                 BottomNavigationBarItem(
-                    icon: Padding(
+                    icon: Container(
                       padding: EdgeInsets.only(top: 15.0),
                       child: Text(
                         "",
@@ -111,6 +122,17 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                       ),
                     ),
                     ),
+                BottomNavigationBarItem(
+                  icon: Container(
+                    padding: EdgeInsets.only(top: 15.0),
+                    child: Text(
+                      "",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                  ),
+                ),
+
                 BottomNavigationBarItem(
                     icon: Icon(
                       Icons.receipt_long_outlined,
@@ -167,7 +189,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
         floatingActionButton: Container(
           constraints: BoxConstraints(
               maxHeight: MediaQuery.sizeOf(context).height*0.055,
-              maxWidth: MediaQuery.sizeOf(context).width*0.3
+              maxWidth: MediaQuery.sizeOf(context).width*0.35
           ),
           alignment: Alignment.center,
           decoration: BoxDecoration(
@@ -184,7 +206,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
               ]
           ),
 
-          child: Text("Book Now",style: TextStyle(color: white,fontFamily: "OpenSans_Bold",fontSize: MediaQuery.sizeOf(context).height*0.017),),
+          child: Text("Book Now",maxLines: 1,textScaleFactor: 1.2,style: TextStyle(color: white,fontFamily: "OpenSans_Bold",fontSize: MediaQuery.sizeOf(context).height*0.02),),
         ),
 
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

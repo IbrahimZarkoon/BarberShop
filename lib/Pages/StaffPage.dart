@@ -390,7 +390,7 @@ class _StaffPageState extends State<StaffPage> {
     return InkWell(
       onTap: ()
       {
-        Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => SingleStaffPage(image: image,) ));
+        Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => SingleStaffPage(image: image,title: name,selectedService: "",) ));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,

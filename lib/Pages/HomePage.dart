@@ -1,5 +1,7 @@
 import 'package:barbershop/CustomWidgets/Headings.dart';
 import 'package:barbershop/CustomWidgets/ParabolicText.dart';
+import 'package:barbershop/Pages/SingleServicePage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_text/circular_text/model.dart';
 import 'package:flutter_circular_text/circular_text/widget.dart';
@@ -8,6 +10,7 @@ import '../Constants/colors.dart';
 import '../CustomWidgets/CustomAppBar.dart';
 import '../CustomWidgets/CustomerDrawer.dart';
 import '../CustomWidgets/TimingsCon.dart';
+import '../CustomWidgets/servicesCon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -259,48 +262,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget serviceCon(
-      BuildContext context, String title, String image, bool isLast) {
-    return InkWell(
-      onTap: () {
-        // isLast?
-        // Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => ServicesPage()))
-        //     :
-        // Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => ChooseProvider(title: title)));
-      },
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: black,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              width: MediaQuery.sizeOf(context).width * 0.25,
-              height: MediaQuery.sizeOf(context).width * 0.25,
-              padding: EdgeInsets.all(0),
-              child: Image.asset(
-                image,
-                fit: BoxFit.scaleDown,
-              ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(
-              title,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: TextStyle(
-                  color: black,
-                  fontSize: MediaQuery.sizeOf(context).height * 0.018,
-                  fontFamily: "OpenSans_SemiBold"),
-            )
-          ],
-        ),
-      ),
-    );
-  }
 }
