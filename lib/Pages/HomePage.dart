@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                           height: 15,
                         ),
                         Text(
-                          "Lorem ipsum dolor sit amet consectetuer adipiscing elit",
+                          "Beyond the Cut: Elevate Your Style with the Ultimate Barber Shop Experience.",
                           maxLines: 2,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,

@@ -21,7 +21,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return Container(
       padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height*0.025,bottom: MediaQuery.sizeOf(context).height*0.025),
       height: MediaQuery.sizeOf(context).height,
-      color: white,
+      color: black,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +30,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
           Container(
               height: MediaQuery.sizeOf(context).height*0.1,
-              child: Image.asset("assets/images/logo.png",)
+              width: MediaQuery.sizeOf(context).width,
+
+              child: Padding(
+                padding: EdgeInsets.all(MediaQuery.sizeOf(context).height*0.01),
+                child: Image.asset("assets/images/logo.png",color: white,),
+              )
           ),
 
           SizedBox(height: MediaQuery.sizeOf(context).height*0.05,),
@@ -44,8 +49,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
               child: drawerCon("Barbers")),
 
           InkWell(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DashboardPage(tabindex: 2))),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DashboardPage(tabindex: 4))),
               child: drawerCon("Appointments")),
+
+          InkWell(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DashboardPage(tabindex: 5))),
+              child: drawerCon("Profile")),
 
           InkWell(
               onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (_) => LoginPage())),
@@ -60,7 +69,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   {
     return Container(
       decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: black.withOpacity(0.2),width: 0.5))
+          border: Border(bottom: BorderSide(color: white.withOpacity(0.75),width: 0.5))
       ),
       padding: EdgeInsets.all(MediaQuery.sizeOf(context).height*0.02),
       child: Row(
@@ -68,7 +77,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
 
-          Text(title,style: TextStyle(color: black,fontSize: MediaQuery.sizeOf(context).height*0.024),)
+          Text(title,style: TextStyle(color: primaryColor,fontSize: MediaQuery.sizeOf(context).height*0.028),)
         ],
       ),
     );
