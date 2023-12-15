@@ -23,8 +23,8 @@ Widget serviceCon(
               color: black,
               borderRadius: BorderRadius.circular(10),
             ),
-            width: MediaQuery.sizeOf(context).width * 0.25,
-            height: MediaQuery.sizeOf(context).width * 0.25,
+            width: MediaQuery.sizeOf(context).width * 0.2,
+            height: MediaQuery.sizeOf(context).width * 0.2,
             padding: EdgeInsets.all(0),
             child: Image.asset(
               image,
