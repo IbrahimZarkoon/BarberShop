@@ -2,6 +2,7 @@ import 'package:barbershop/Constants/colors.dart';
 import 'package:barbershop/Pages/DashboardPage.dart';
 import 'package:barbershop/Pages/LoginPage.dart';
 import 'package:barbershop/Pages/SplashScreen.dart';
+import 'package:barbershop/modals/bookingProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -22,16 +23,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        Provider(create: (_) => BookingProvider())
+      ],
+      child: MaterialApp(
 
-        title: 'BarberShop',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: "OpenSans",
-          useMaterial3: true,
-          primaryColor: primaryColor
-        ),
-        home:  SplashScreen()
+          title: 'BarberShop',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            fontFamily: "OpenSans",
+            useMaterial3: true,
+            primaryColor: primaryColor
+          ),
+          home:  SplashScreen()
+      ),
     );
   }
 }

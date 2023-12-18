@@ -44,8 +44,8 @@ class _HomePageState extends State<HomePage> {
       //   child: CustomAppBar(),
       // ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.only(top: kToolbarHeight - 15),
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.only(top: kToolbarHeight - 15),
         scrollDirection: Axis.vertical,
         child: Container(
           decoration: BoxDecoration(
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                 //Welcome Curve Con
                 Center(
                   child: Container(
-                    height: MediaQuery.sizeOf(context).height * 0.6,
+                    height: MediaQuery.sizeOf(context).height * 0.49,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                                 "-WELCOME-".toUpperCase(),
                                 style: TextStyle(
                                   fontSize:
-                                      MediaQuery.sizeOf(context).height * 0.04,
+                                      MediaQuery.sizeOf(context).height * 0.0375,
                                   color: primaryColor,
                                   fontFamily: "OpenSans_Bold",
                                 ),
@@ -114,12 +114,12 @@ class _HomePageState extends State<HomePage> {
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: MediaQuery.sizeOf(context).height * 0.035,
+                            fontSize: MediaQuery.sizeOf(context).height * 0.03,
                             color: white.withOpacity(0.9),
                             fontFamily: "OpenSans_Bold",
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         Text(
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: MediaQuery.sizeOf(context).height * 0.02,
+                            fontSize: MediaQuery.sizeOf(context).height * 0.018,
                             color: white.withOpacity(0.7),
                             fontFamily: "OpenSans_SemiBold",
                           ),
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                 //Services Positioned
                 Positioned(
                     left: 0,
-                    top: MediaQuery.sizeOf(context).height * 0.15,
+                    top: MediaQuery.sizeOf(context).height * 0.13,
                     right: 0,
                     bottom: 0,
                     child: Container(
@@ -147,15 +147,15 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(color: white),
                       // Other properties for your container, e.g., width, height, padding, etc.
                       width: MediaQuery.of(context).size.width / 2,
-
+                      padding: EdgeInsets.only(top: 5),
                       // Your content goes here
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
                             "- SERVICES -".toUpperCase(),
                             style: TextStyle(
-                              fontSize: MediaQuery.sizeOf(context).height * 0.04,
+                              fontSize: MediaQuery.sizeOf(context).height * 0.035,
                               color: black,
                               fontFamily: "OpenSans_Bold",
                             ),
@@ -163,11 +163,12 @@ class _HomePageState extends State<HomePage> {
                           GridView.builder(
                             shrinkWrap: true,
                               scrollDirection: Axis.vertical,
-                              physics: BouncingScrollPhysics(),
-                              padding: EdgeInsets.only(left: 5,right: 5),
-                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              physics: const BouncingScrollPhysics(),
+                              padding: const EdgeInsets.only(left: 10,right: 10,top: 5),
+                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 3,
-                                mainAxisSpacing: 10
+                                mainAxisSpacing: 0,
+
                               ),
                               itemCount: serviceList.length ?? 0,
                               itemBuilder: (context,index)
