@@ -2,6 +2,7 @@ import 'package:another_stepper/dto/stepper_data.dart';
 import 'package:another_stepper/widgets/another_stepper.dart';
 import 'package:barbershop/CustomWidgets/BookingStepper.dart';
 import 'package:barbershop/CustomWidgets/Headings.dart';
+import 'package:barbershop/Pages/SingleBookingPage.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/colors.dart';
@@ -161,174 +162,202 @@ class _BookingsPageState extends State<BookingsPage> {
 
   Widget activeBookingCon(String img, String serviceTitle, String bookingNum, String date, String time, String loc, String barber, int step)
   {
-    return Container(
-      margin: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02,bottom: MediaQuery.sizeOf(context).height*0.02),
-      padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.02,top: MediaQuery.sizeOf(context).height*0.02),
-      width: MediaQuery.sizeOf(context).width,
-      decoration: BoxDecoration(
-        color: white.withOpacity(0.8),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
+    return InkWell(
+      onTap: ()
+      {
+        showModalBottomSheet(
+          isScrollControlled: true,
+            context: context,
+            backgroundColor: Colors.black,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))),
+            builder: (BuildContext context)
+        {
+          return SingleBookingPage();
+        });
+      },
+      child: Container(
+        margin: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02,bottom: MediaQuery.sizeOf(context).height*0.02),
+        padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.02,top: MediaQuery.sizeOf(context).height*0.02),
+        width: MediaQuery.sizeOf(context).width,
+        decoration: BoxDecoration(
+          color: white.withOpacity(0.8),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
 
-          //Top Row
-          Container(
-            padding: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            //Top Row
+            Container(
+              padding: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
 
-                //Image Container
-                Container(
-                  width: 60,height: 60,
-                  margin: const EdgeInsets.only(right: 15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: black,
-                      image: DecorationImage(
-                          image: NetworkImage(
-                            img,
-                          ),
-                          fit: BoxFit.cover
-                      )
+                  //Image Container
+                  Container(
+                    width: 60,height: 60,
+                    margin: const EdgeInsets.only(right: 15),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: black,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                              img,
+                            ),
+                            fit: BoxFit.cover
+                        )
+                    ),
                   ),
-                ),
 
-                //Title Column
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  //Title Column
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
 
-                  children: [
+                    children: [
 
-                    Text(serviceTitle,style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.024,fontWeight: FontWeight.bold,color: black.withOpacity(0.8)),),
+                      Text(serviceTitle,style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.024,fontWeight: FontWeight.bold,color: black.withOpacity(0.8)),),
 
-                    const SizedBox(height: 5,),
+                      const SizedBox(height: 5,),
 
-                    Text("Scheduled on: $date",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
-                    Text("Time: $time",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
-                    Text("Location: $loc",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
-                    Text("Specialist: $barber",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
-
-
-                  ],
-                ),
-
-                Spacer(),
-
-                //Booking Number Column
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-
-                  children: [
-
-                    Text("#$bookingNum",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.02,fontWeight: FontWeight.bold,color: black.withOpacity(0.5)),),
-
-                    //const SizedBox(height: 5,),
+                      Text("Scheduled on: $date",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
+                      Text("Time: $time",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
+                      Text("Location: $loc",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
+                      Text("Specialist: $barber",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
 
 
-                  ],
-                ),
+                    ],
+                  ),
 
-              ],
+                  Spacer(),
+
+                  //Booking Number Column
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+
+                    children: [
+
+                      Text("#$bookingNum",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.02,fontWeight: FontWeight.bold,color: black.withOpacity(0.5)),),
+
+                      //const SizedBox(height: 5,),
+
+
+                    ],
+                  ),
+
+                ],
+              ),
             ),
-          ),
 
-          SizedBox(height: MediaQuery.sizeOf(context).height*0.02,),
+            SizedBox(height: MediaQuery.sizeOf(context).height*0.02,),
 
-          BookingStepper(stepIndex: step),
+            BookingStepper(stepIndex: step),
 
-        ],
+          ],
+        ),
       ),
     );
   }
 
   Widget pastBookingCon(String img, String serviceTitle, String bookingNum, String date, String time, String loc, String barber, int step)
   {
-    return Container(
-      margin: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02,bottom: MediaQuery.sizeOf(context).height*0.02),
-      padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.02,top: MediaQuery.sizeOf(context).height*0.02),
-      width: MediaQuery.sizeOf(context).width,
-      decoration: BoxDecoration(
-        color: white.withOpacity(0.9),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
+    return InkWell(
+      onTap: ()
+      {
+        showModalBottomSheet(
+            isScrollControlled: true,
+            context: context,
+            backgroundColor: Colors.black,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))),
+            builder: (BuildContext context)
+            {
+              return SingleBookingPage();
+            });
+      },
+      child: Container(
+        margin: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02,bottom: MediaQuery.sizeOf(context).height*0.02),
+        padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.02,top: MediaQuery.sizeOf(context).height*0.02),
+        width: MediaQuery.sizeOf(context).width,
+        decoration: BoxDecoration(
+          color: white.withOpacity(0.9),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
 
-          //Top Row
-          Container(
-            padding: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            //Top Row
+            Container(
+              padding: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
 
-                //Image Container
-                Container(
-                  width: 60,height: 60,
-                  margin: const EdgeInsets.only(right: 15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: black,
-                      image: DecorationImage(
-                          image: NetworkImage(
-                            img,
-                          ),
-                          fit: BoxFit.cover
-                      )
+                  //Image Container
+                  Container(
+                    width: 60,height: 60,
+                    margin: const EdgeInsets.only(right: 15),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: black,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                              img,
+                            ),
+                            fit: BoxFit.cover
+                        )
+                    ),
                   ),
-                ),
 
-                //Title Column
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  //Title Column
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
 
-                  children: [
+                    children: [
 
-                    Text(serviceTitle,style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.024,fontWeight: FontWeight.bold,color: black.withOpacity(0.8)),),
+                      Text(serviceTitle,style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.024,fontWeight: FontWeight.bold,color: black.withOpacity(0.8)),),
 
-                    const SizedBox(height: 5,),
+                      const SizedBox(height: 5,),
 
-                    Text("Scheduled on: $date",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
-                    Text("Time: $time",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
-                    Text("Location: $loc",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
-                    Text("Specialist: $barber",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
-
-
-                  ],
-                ),
-
-                Spacer(),
-
-                //Booking Number Column
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-
-                  children: [
-
-                    Text("#$bookingNum",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.02,fontWeight: FontWeight.bold,color: black.withOpacity(0.5)),),
-
-                    //const SizedBox(height: 5,),
+                      Text("Scheduled on: $date",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
+                      Text("Time: $time",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
+                      Text("Location: $loc",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
+                      Text("Specialist: $barber",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.018,fontFamily:"OpenSans",color: black.withOpacity(0.8)),),
 
 
-                  ],
-                ),
+                    ],
+                  ),
 
-              ],
+                  Spacer(),
+
+                  //Booking Number Column
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+
+                    children: [
+
+                      Text("#$bookingNum",style: TextStyle(fontSize: MediaQuery.sizeOf(context).height*0.02,fontWeight: FontWeight.bold,color: black.withOpacity(0.5)),),
+
+                      //const SizedBox(height: 5,),
+
+
+                    ],
+                  ),
+
+                ],
+              ),
             ),
-          ),
 
-          SizedBox(height: MediaQuery.sizeOf(context).height*0.02,),
+            SizedBox(height: MediaQuery.sizeOf(context).height*0.02,),
 
-          BookingStepper(stepIndex: step),
+            BookingStepper(stepIndex: step),
 
-        ],
+          ],
+        ),
       ),
     );
   }

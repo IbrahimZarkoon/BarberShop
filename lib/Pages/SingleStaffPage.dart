@@ -1,4 +1,5 @@
 import 'package:barbershop/CustomWidgets/Headings.dart';
+import 'package:barbershop/Pages/BookingCompletedPage.dart';
 import 'package:barbershop/modals/bookingProvider.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +21,7 @@ class SingleStaffPage extends StatefulWidget {
 }
 
 class _SingleStaffPageState extends State<SingleStaffPage> {
-
   var _selectedDate = DateTime.now();
-
   int selectedServiceIndex = -1;
 
   List<List<String>> serviceList = [
@@ -42,17 +41,22 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+
+    // Use Future.delayed to execute the code after the build phase
+    Future.delayed(Duration.zero, () {
+      // Use Provider to set values in BookingProvider
+      Provider.of<BookingProvider>(context, listen: false).barber = widget.title;
+      Provider.of<BookingProvider>(context, listen: false).time = _selectedDate.toString();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
 
-    var bookingProv = Provider.of<BookingProvider>(context, listen: false);
+    var bookingProv = Provider.of<BookingProvider>(context, );
 
-     bookingProv.barber = widget.title;
-     bookingProv.time = _selectedDate.toString();
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0.1,
@@ -240,23 +244,29 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
        if(bookingProv.time.isNotEmpty && bookingProv.barber.isNotEmpty && bookingProv.service.isNotEmpty && bookingProv.date.isNotEmpty) Positioned(
 
             bottom: 15,left: 15,right: 15,
-            child: Container(
+            child: InkWell(
+              onTap: ()
+              {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => BookingCompletedPage()));
+              },
+              child: Container(
           margin: EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.04),
           alignment: Alignment.center,
           padding: EdgeInsets.all(
-              MediaQuery.sizeOf(context).height * 0.015),
+                MediaQuery.sizeOf(context).height * 0.015),
           decoration: BoxDecoration(
-              color: Colors.black,
-              border: Border.all(color: primaryColor,width: 2),
-              borderRadius: BorderRadius.circular(15)),
+                color: Colors.black,
+                border: Border.all(color: primaryColor,width: 2),
+                borderRadius: BorderRadius.circular(15)),
           child: Text(
-            "Confirm Booking",
-            style: TextStyle(
-                color: primaryColor,
-                fontFamily: "OpenSans_Bold",
-                fontSize: MediaQuery.sizeOf(context).height * 0.02),
+              "Confirm Booking",
+              style: TextStyle(
+                  color: primaryColor,
+                  fontFamily: "OpenSans_Bold",
+                  fontSize: MediaQuery.sizeOf(context).height * 0.02),
           ),
-        ))
+        ),
+            ))
         ]
       ),
     );
@@ -264,7 +274,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
 
   Widget timeSlotCon()
   {
-    var bookingProv = Provider.of<BookingProvider>(context, listen: false);
+    var bookingProv = Provider.of<BookingProvider>(context);
 
     return Container(
       padding: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02,bottom: MediaQuery.sizeOf(context).height*0.015,top: MediaQuery.sizeOf(context).height*0.015),
@@ -422,7 +432,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
   Widget staffServicesCon(
       BuildContext context, String title, String image, bool isLast,int index) {
 
-    var bookingProv = Provider.of<BookingProvider>(context, listen: false);
+    var bookingProv = Provider.of<BookingProvider>(context);
 
     return Container(
       child: Column(
@@ -490,7 +500,7 @@ class _TimeSlotsGridState extends State<TimeSlotsGrid> {
 
   @override
   Widget build(BuildContext context) {
-    var bookingProv = Provider.of<BookingProvider>(context, listen: false);
+    var bookingProv = Provider.of<BookingProvider>(context);
 
     return GridView.builder(
       shrinkWrap: true,
