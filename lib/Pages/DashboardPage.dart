@@ -25,14 +25,15 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
 
   final userTabs = [
     HomePage(),
-    StaffPage(),
+    BookingsPage(),
+
 
     //Book Now Tabs Start
-    SizedBox(),
+    StaffPage(),
     SizedBox(),
     //Book Now Tabs End
 
-    BookingsPage(),
+    SizedBox(),
     SizedBox()
   ];
 
@@ -107,7 +108,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.content_cut_outlined,
+                    Icons.receipt_long_outlined,
                     size: MediaQuery.sizeOf(context).height*0.035,
                   ),
                 ),
@@ -135,7 +136,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
 
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.receipt_long_outlined,
+                      Icons.notifications_none_outlined,
                       size: MediaQuery.sizeOf(context).height*0.035,
                     ),
                     ),
@@ -186,27 +187,36 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
         ]
         ),
 
-        floatingActionButton: Container(
-          constraints: BoxConstraints(
-              maxHeight: MediaQuery.sizeOf(context).height*0.055,
-              maxWidth: MediaQuery.sizeOf(context).width*0.35
-          ),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: Color(0xff1beca1),
+        floatingActionButton: InkWell(
+          onTap: ()
+          {
+            setState(() {
+              widget.tabindex = 2;
+            });
+            _tabController.animateTo(2);
+          },
+          child: Container(
+            constraints: BoxConstraints(
+                maxHeight: MediaQuery.sizeOf(context).height*0.055,
+                maxWidth: MediaQuery.sizeOf(context).width*0.35
+            ),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: Color(0xff1beca1),
 
-              borderRadius: BorderRadius.circular(50),
-              boxShadow: [
-                BoxShadow(
-                    color: black.withOpacity(0.2),
-                    spreadRadius: 1,
-                    blurRadius: 1.5,
-                    offset: Offset(0,0)
-                )
-              ]
-          ),
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  BoxShadow(
+                      color: black.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 1.5,
+                      offset: Offset(0,0)
+                  )
+                ]
+            ),
 
-          child: Text("Book Now",maxLines: 1,textScaleFactor: 1.2,style: TextStyle(color: white,fontFamily: "OpenSans_Bold",fontSize: MediaQuery.sizeOf(context).height*0.02),),
+            child: Text("Book Now",maxLines: 1,textScaleFactor: 1.2,style: TextStyle(color: white,fontFamily: "OpenSans_Bold",fontSize: MediaQuery.sizeOf(context).height*0.02),),
+          ),
         ),
 
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

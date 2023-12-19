@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                 //Welcome Curve Con
                 Center(
                   child: Container(
-                    height: MediaQuery.sizeOf(context).height * 0.49,
+                    height: MediaQuery.sizeOf(context).height * 0.5,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                 //Services Positioned
                 Positioned(
                     left: 0,
-                    top: MediaQuery.sizeOf(context).height * 0.13,
+                    top: MediaQuery.sizeOf(context).height * 0.125,
                     right: 0,
                     bottom: 0,
                     child: Container(

@@ -9,10 +9,9 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp,
-  //   DeviceOrientation.portraitDown,
-  // ]);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: black, // Set the status bar color here
+  ));
   runApp( MyApp());
 }
 
@@ -23,10 +22,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider(create: (_) => BookingProvider())
-      ],
+    return ChangeNotifierProvider(
+
+        create: (_) => BookingProvider(),
       child: MaterialApp(
 
           title: 'BarberShop',
