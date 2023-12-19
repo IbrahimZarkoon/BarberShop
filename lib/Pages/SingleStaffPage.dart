@@ -49,7 +49,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
   @override
   Widget build(BuildContext context) {
 
-    var bookingProv = Provider.of<BookingProvider>(context, listen: false);
+    var bookingProv = Provider.of<BookingProvider>(context);
 
      bookingProv.barber = widget.title;
      bookingProv.time = _selectedDate.toString();
@@ -264,7 +264,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
 
   Widget timeSlotCon()
   {
-    var bookingProv = Provider.of<BookingProvider>(context, listen: false);
+    var bookingProv = Provider.of<BookingProvider>(context);
 
     return Container(
       padding: EdgeInsets.only(left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02,bottom: MediaQuery.sizeOf(context).height*0.015,top: MediaQuery.sizeOf(context).height*0.015),
@@ -422,7 +422,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
   Widget staffServicesCon(
       BuildContext context, String title, String image, bool isLast,int index) {
 
-    var bookingProv = Provider.of<BookingProvider>(context, listen: false);
+    var bookingProv = Provider.of<BookingProvider>(context);
 
     return Container(
       child: Column(
@@ -490,7 +490,7 @@ class _TimeSlotsGridState extends State<TimeSlotsGrid> {
 
   @override
   Widget build(BuildContext context) {
-    var bookingProv = Provider.of<BookingProvider>(context, listen: false);
+    var bookingProv = Provider.of<BookingProvider>(context);
 
     return GridView.builder(
       shrinkWrap: true,
