@@ -89,8 +89,8 @@ class _SingleServicePageState extends State<SingleServicePage> {
                   //Image Con
                   Container(
                     margin: EdgeInsets.only(right: MediaQuery.sizeOf(context).height*0.015),
-                    width: MediaQuery.sizeOf(context).width*0.3,
-                    height: MediaQuery.sizeOf(context).width*0.3,
+                    width: MediaQuery.sizeOf(context).width*0.2,
+                    height: MediaQuery.sizeOf(context).width*0.2,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         color: black,
@@ -109,13 +109,13 @@ class _SingleServicePageState extends State<SingleServicePage> {
 
                       Text(widget.serviceTitle,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(
                         fontFamily: "OpenSans_Bold",
-                        fontSize: MediaQuery.sizeOf(context).height*0.045,
+                        fontSize: MediaQuery.sizeOf(context).height*0.035,
                         color: Colors.black,
                       ),),
 
                       Text("Service",maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(
                         fontFamily: "OpenSans",
-                        fontSize: MediaQuery.sizeOf(context).height*0.0325,
+                        fontSize: MediaQuery.sizeOf(context).height*0.025,
                         color: Colors.black,
                       ),),
 
