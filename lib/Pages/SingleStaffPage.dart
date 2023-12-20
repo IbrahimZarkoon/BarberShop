@@ -1,4 +1,3 @@
-import 'package:barbershop/CustomWidgets/Headings.dart';
 import 'package:barbershop/Pages/BookingCompletedPage.dart';
 import 'package:barbershop/modals/bookingProvider.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
@@ -7,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import '../Constants/colors.dart';
 import '../CustomWidgets/CustomerDrawer.dart';
-import '../CustomWidgets/servicesCon.dart';
 
 class SingleStaffPage extends StatefulWidget {
    SingleStaffPage({super.key,required this.image,required this.title,required this.selectedService});
@@ -35,7 +33,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
 
   // Calculate disabled dates that are earlier than the current date
   List<DateTime> myDisabledDates = List.generate(
-    DateTime.now().difference(DateTime.now().subtract(Duration(days: 365))).inDays, // Use the current day as the number of disabled dates
+    DateTime.now().difference(DateTime.now().subtract(const Duration(days: 365))).inDays, // Use the current day as the number of disabled dates
         (index) => DateTime.now().subtract(Duration(days: index + 1)),
   );
 
@@ -91,14 +89,14 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
         elevation: 10,
         clipBehavior: Clip.none,
         shadowColor: Colors.black.withOpacity(0.5),
-        child:  CustomDrawer(),
+        child:  const CustomDrawer(),
       ),
 
       backgroundColor: black.withOpacity(0.02),
       body: Stack(
         children: [SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,7 +123,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         image: DecorationImage(
-                          image: NetworkImage("${widget.image}"),fit: BoxFit.cover,filterQuality: FilterQuality.high
+                          image: NetworkImage(widget.image),fit: BoxFit.cover,filterQuality: FilterQuality.high
                         )
                       ),
                     ),
@@ -178,7 +176,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
                 ),
               ),
 
-              TimeSlotsGrid(),
+              const TimeSlotsGrid(),
 
               Container(
                 padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height*0.015),
@@ -210,9 +208,9 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
 
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         padding: EdgeInsets.only(left: 5,right: 5,bottom: MediaQuery.sizeOf(context).height*0.075),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 3,
                             mainAxisSpacing: 0
                         ),
@@ -247,7 +245,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
             child: InkWell(
               onTap: ()
               {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => BookingCompletedPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const BookingCompletedPage()));
               },
               child: Container(
           margin: EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.04),
@@ -375,7 +373,7 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
                 ),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.transparent,width: 2),
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
 
                 ),
               ),
@@ -473,6 +471,8 @@ class _SingleStaffPageState extends State<SingleStaffPage> {
 
 
 class TimeSlotsGrid extends StatefulWidget {
+  const TimeSlotsGrid({super.key});
+
   @override
   _TimeSlotsGridState createState() => _TimeSlotsGridState();
 }
@@ -505,7 +505,7 @@ class _TimeSlotsGridState extends State<TimeSlotsGrid> {
     return GridView.builder(
       shrinkWrap: true,
       scrollDirection: Axis.vertical,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.02,left: MediaQuery.sizeOf(context).height*0.025,right: MediaQuery.sizeOf(context).height*0.025),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,

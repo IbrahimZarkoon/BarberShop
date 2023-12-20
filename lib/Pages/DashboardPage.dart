@@ -1,19 +1,15 @@
-import 'dart:ui';
 import 'package:barbershop/Pages/BookingsPage.dart';
 import 'package:barbershop/Pages/HomePage.dart';
 import 'package:barbershop/Pages/StaffPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:stylish_bottom_bar/model/bar_items.dart';
-import 'package:stylish_bottom_bar/model/options.dart';
-import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
 import '../Constants/colors.dart';
 import '../CustomWidgets/CustomAppBar.dart';
 import '../CustomWidgets/CustomerDrawer.dart';
 
 class DashboardPage extends StatefulWidget {
-  DashboardPage({Key? key, required this.tabindex}) : super(key: key);
+  DashboardPage({super.key, required this.tabindex});
 
   int tabindex;
 
@@ -24,17 +20,17 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> with SingleTickerProviderStateMixin{
 
   final userTabs = [
-    HomePage(),
-    BookingsPage(),
+    const HomePage(),
+    const BookingsPage(),
 
 
     //Book Now Tabs Start
-    StaffPage(),
-    SizedBox(),
+    const StaffPage(),
+    const SizedBox(),
     //Book Now Tabs End
 
-    SizedBox(),
-    SizedBox()
+    const SizedBox(),
+    const SizedBox()
   ];
 
   dynamic selected;
@@ -61,10 +57,10 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
           elevation: 10,
           clipBehavior: Clip.none,
           shadowColor: Colors.black.withOpacity(0.5),
-          child:  CustomDrawer(),
+          child:  const CustomDrawer(),
         ),
 
-        appBar: PreferredSize(
+        appBar: const PreferredSize(
           preferredSize: Size.fromHeight(kToolbarHeight),
           child: CustomAppBar(),
         ),
@@ -115,8 +111,8 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
 
                 BottomNavigationBarItem(
                     icon: Container(
-                      padding: EdgeInsets.only(top: 15.0),
-                      child: Text(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: const Text(
                         "",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
@@ -125,8 +121,8 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                     ),
                 BottomNavigationBarItem(
                   icon: Container(
-                    padding: EdgeInsets.only(top: 15.0),
-                    child: Text(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: const Text(
                       "",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 16),
@@ -142,7 +138,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                     ),
                 BottomNavigationBarItem(
                   icon: Padding(
-                    padding: EdgeInsets.only(right: 5),
+                    padding: const EdgeInsets.only(right: 5),
                     child: Icon(
                       CupertinoIcons.person_alt,
                       size: MediaQuery.sizeOf(context).height*0.035,
@@ -202,7 +198,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
             ),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-                color: Color(0xff1beca1),
+                color: const Color(0xff1beca1),
 
                 borderRadius: BorderRadius.circular(50),
                 boxShadow: [
@@ -210,7 +206,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                       color: black.withOpacity(0.2),
                       spreadRadius: 1,
                       blurRadius: 1.5,
-                      offset: Offset(0,0)
+                      offset: const Offset(0,0)
                   )
                 ]
             ),

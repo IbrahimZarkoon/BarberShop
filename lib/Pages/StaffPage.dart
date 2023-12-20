@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../Constants/colors.dart';
-import '../CustomWidgets/Headings.dart';
-import 'DashboardPage.dart';
 
 class StaffPage extends StatefulWidget {
   const StaffPage({super.key});
@@ -50,7 +48,7 @@ class _StaffPageState extends State<StaffPage> {
       //   ),
       // ),
 
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         // decoration: BoxDecoration(
@@ -203,9 +201,9 @@ class _StaffPageState extends State<StaffPage> {
                     // ),
 
                     Container(
-                      padding: EdgeInsets.only(top: 15,bottom: 15),
+                      padding: const EdgeInsets.only(top: 15,bottom: 15),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15)),
+                        borderRadius: const BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15)),
                         color: black,
                       ),
                       child: Column(
@@ -217,7 +215,7 @@ class _StaffPageState extends State<StaffPage> {
                             height: MediaQuery.of(context).size.height*0.2,
                             decoration:  BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
+                                image: const DecorationImage(
                                     image: AssetImage("assets/images/GoogleMaps.png"),fit: BoxFit.cover
                                 )
                             ),
@@ -319,9 +317,9 @@ class _StaffPageState extends State<StaffPage> {
 
                     //Monday Timings
                     Container(
-                      padding: EdgeInsets.only(top: 15,bottom: 15),
+                      padding: const EdgeInsets.only(top: 15,bottom: 15),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15)),
+                        borderRadius: const BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15)),
                         color: black,
                       ),
                       child: Column(
@@ -397,7 +395,7 @@ class _StaffPageState extends State<StaffPage> {
         margin: const EdgeInsets.only(bottom: 2),
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
-          borderRadius:isLast? BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15)): BorderRadius.circular(0),
+          borderRadius:isLast? const BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15)): BorderRadius.circular(0),
           color: black.withOpacity(0.5),
 
         ),

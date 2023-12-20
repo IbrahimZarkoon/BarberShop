@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 
 import '../Constants/colors.dart';
 import '../CustomWidgets/Headings.dart';
-import 'DashboardPage.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -229,7 +228,7 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
 
-              Container(
+              SizedBox(
                   width: height*0.04, height: height*0.04 ,
                   child:  Image(image: NetworkImage(imgURL),fit: BoxFit.cover,)),
 

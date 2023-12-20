@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -6,7 +5,7 @@ class ParabolicText extends StatelessWidget {
   final String text;
   final double fontSize;
 
-  ParabolicText({required this.text, required this.fontSize});
+  const ParabolicText({super.key, required this.text, required this.fontSize});
 
   @override
   Widget build(BuildContext context) {

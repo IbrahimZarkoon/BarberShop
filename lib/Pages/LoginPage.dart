@@ -201,7 +201,7 @@ class _LoginPageState extends State<LoginPage>
                 //Register Row
                 InkWell(
                   onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => RegisterPage())),
+                      MaterialPageRoute(builder: (_) => const RegisterPage())),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -262,7 +262,7 @@ class _LoginPageState extends State<LoginPage>
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                   width: height * 0.04,
                   height: height * 0.04,
                   child: Image(

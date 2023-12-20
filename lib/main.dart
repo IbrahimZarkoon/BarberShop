@@ -1,6 +1,4 @@
 import 'package:barbershop/Constants/colors.dart';
-import 'package:barbershop/Pages/DashboardPage.dart';
-import 'package:barbershop/Pages/LoginPage.dart';
 import 'package:barbershop/Pages/SplashScreen.dart';
 import 'package:barbershop/modals/bookingProvider.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +10,7 @@ Future<void> main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: black, // Set the status bar color here
   ));
-  runApp( MyApp());
+  runApp( const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,7 +32,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             primaryColor: primaryColor
           ),
-          home:  SplashScreen()
+          home:  const SplashScreen()
       ),
     );
   }

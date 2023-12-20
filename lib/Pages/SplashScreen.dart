@@ -1,12 +1,11 @@
 import 'package:barbershop/Pages/LoginPage.dart';
 import 'package:barbershop/Pages/RegisterPage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/colors.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -67,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     Colors.transparent,
                     black.withOpacity(0.75),
                   ],
-                  stops: [0.5,0.6],
+                  stops: const [0.5,0.6],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter
                 )
@@ -109,7 +108,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
                     //Join Now Con
                     InkWell(
-                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => RegisterPage())),
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const RegisterPage())),
                       child: Container(
                         margin: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.02,top: MediaQuery.sizeOf(context).height*0.02),
                         alignment: Alignment.center,
@@ -129,7 +128,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
                     //Login Row
                     InkWell(
-                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage())),
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginPage())),
                       child: Container(
                         padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.015,top: MediaQuery.sizeOf(context).height*0.015),
                         child: Row(

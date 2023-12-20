@@ -1,14 +1,9 @@
 import 'package:barbershop/CustomWidgets/Headings.dart';
-import 'package:barbershop/CustomWidgets/ParabolicText.dart';
-import 'package:barbershop/Pages/SingleServicePage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_text/circular_text/model.dart';
 import 'package:flutter_circular_text/circular_text/widget.dart';
 
 import '../Constants/colors.dart';
-import '../CustomWidgets/CustomAppBar.dart';
-import '../CustomWidgets/CustomerDrawer.dart';
 import '../CustomWidgets/TimingsCon.dart';
 import '../CustomWidgets/servicesCon.dart';
 
@@ -51,7 +46,7 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [black,white],
-              stops: [0.5,0.5],
+              stops: const [0.5,0.5],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter
             )
@@ -65,7 +60,7 @@ class _HomePageState extends State<HomePage> {
 
                 //Welcome Curve Con
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.sizeOf(context).height * 0.5,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -147,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(color: white),
                       // Other properties for your container, e.g., width, height, padding, etc.
                       width: MediaQuery.of(context).size.width / 2,
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 5),
                       // Your content goes here
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,

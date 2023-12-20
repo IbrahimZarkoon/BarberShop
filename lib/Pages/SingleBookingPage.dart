@@ -1,6 +1,5 @@
 import 'package:barbershop/CustomWidgets/TimerWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../Constants/colors.dart';
 
@@ -29,13 +28,13 @@ class _SingleBookingPageState extends State<SingleBookingPage> {
             padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height*0.015,bottom: MediaQuery.sizeOf(context).height*0.015,left: MediaQuery.sizeOf(context).height*0.02,right: MediaQuery.sizeOf(context).height*0.02),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.white.withOpacity(0.05),width: 1),
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15))
+              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15))
             ),
             child: Column(
               children: [
                 
                 //AppBar Con
-                Container(
+                SizedBox(
                   height: kToolbarHeight,
                   width: MediaQuery.sizeOf(context).width,
                   child: AppBar(
@@ -64,7 +63,7 @@ class _SingleBookingPageState extends State<SingleBookingPage> {
                           color: white,fontSize: MediaQuery.sizeOf(context).height*0.03
                       ),),
 
-                    TimerWidget()
+                    const TimerWidget()
                   ],
                 ),
 
@@ -93,11 +92,11 @@ class _SingleBookingPageState extends State<SingleBookingPage> {
                               color: Colors.white.withOpacity(0.1),
                               spreadRadius: 1,
                               blurRadius: 1.5,
-                              offset: Offset(0,0)
+                              offset: const Offset(0,0)
                             )
                           ],
                             borderRadius: BorderRadius.circular(100),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                 image: AssetImage("assets/images/HairCut_Icon.png"),fit: BoxFit.scaleDown,filterQuality: FilterQuality.high
                             )
                         ),
@@ -125,7 +124,7 @@ class _SingleBookingPageState extends State<SingleBookingPage> {
                         ],
                       ),
 
-                      Spacer(),
+                      const Spacer(),
 
                       InkWell(
                         onTap: () {
@@ -137,12 +136,9 @@ class _SingleBookingPageState extends State<SingleBookingPage> {
                             borderRadius: BorderRadius.circular(100),
                             color: white.withOpacity(0.5)
                           ),
-                          child: Icon(Icons.phone_outlined),
+                          child: const Icon(Icons.phone_outlined),
                         ),
                       )
-
-
-
                     ],
 
                   ),

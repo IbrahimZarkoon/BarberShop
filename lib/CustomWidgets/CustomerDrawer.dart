@@ -28,7 +28,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
         children: [
 
-          Container(
+          SizedBox(
               height: MediaQuery.sizeOf(context).height*0.1,
               width: MediaQuery.sizeOf(context).width,
 
@@ -57,7 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               child: drawerCon("Profile")),
 
           InkWell(
-              onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (_) => LoginPage())),
+              onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (_) => const LoginPage())),
               child: drawerCon("Logout")),
 
         ],
@@ -86,7 +86,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Widget drawerSubCon(String title,bool islast)
   {
     return Container(
-      decoration: islast? BoxDecoration() : BoxDecoration(
+      decoration: islast? const BoxDecoration() : BoxDecoration(
           border: Border(bottom: BorderSide(color: black.withOpacity(0.2),width: 0.5))
       ),
       padding: EdgeInsets.all(MediaQuery.sizeOf(context).height*0.015),
@@ -101,7 +101,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  Widget drawerAcc(String title,bool _isExpanded, List<Widget> subCon)
+  Widget drawerAcc(String title,bool isExpanded, List<Widget> subCon)
   {
     return Container(
       decoration: BoxDecoration(
@@ -126,7 +126,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         children: subCon,
         onExpansionChanged: (bool expanded) {
           setState(() {
-            _isExpanded = expanded;
+            isExpanded = expanded;
           });
         },
       ),

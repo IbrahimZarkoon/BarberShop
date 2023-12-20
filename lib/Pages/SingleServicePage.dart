@@ -1,5 +1,3 @@
-import 'package:barbershop/CustomWidgets/Headings.dart';
-import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,11 +17,11 @@ class SingleServicePage extends StatefulWidget {
 
 class _SingleServicePageState extends State<SingleServicePage> {
 
-  var _selectedDate = DateTime.now();
+  final _selectedDate = DateTime.now();
 
   // Calculate disabled dates that are earlier than the current date
   List<DateTime> myDisabledDates = List.generate(
-    DateTime.now().difference(DateTime.now().subtract(Duration(days: 365))).inDays, // Use the current day as the number of disabled dates
+    DateTime.now().difference(DateTime.now().subtract(const Duration(days: 365))).inDays, // Use the current day as the number of disabled dates
         (index) => DateTime.now().subtract(Duration(days: index + 1)),
   );
 
@@ -63,13 +61,13 @@ class _SingleServicePageState extends State<SingleServicePage> {
         elevation: 10,
         clipBehavior: Clip.none,
         shadowColor: Colors.black.withOpacity(0.5),
-        child:  CustomDrawer(),
+        child:  const CustomDrawer(),
       ),
 
       backgroundColor: black.withOpacity(0.02),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +95,7 @@ class _SingleServicePageState extends State<SingleServicePage> {
                         borderRadius: BorderRadius.circular(100),
                         color: black,
                         image: DecorationImage(
-                            image: AssetImage("${widget.image}"),fit: BoxFit.scaleDown,filterQuality: FilterQuality.high
+                            image: AssetImage(widget.image),fit: BoxFit.scaleDown,filterQuality: FilterQuality.high
                         )
                     ),
                   ),
@@ -109,7 +107,7 @@ class _SingleServicePageState extends State<SingleServicePage> {
 
                     children: [
 
-                      Text("${widget.serviceTitle}",maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(
+                      Text(widget.serviceTitle,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(
                         fontFamily: "OpenSans_Bold",
                         fontSize: MediaQuery.sizeOf(context).height*0.045,
                         color: Colors.black,
@@ -238,7 +236,7 @@ class _SingleServicePageState extends State<SingleServicePage> {
         margin: const EdgeInsets.only(bottom: 2),
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
-          borderRadius:isLast? BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15)): BorderRadius.circular(0),
+          borderRadius:isLast? const BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15)): BorderRadius.circular(0),
           color: black.withOpacity(0.5),
 
         ),

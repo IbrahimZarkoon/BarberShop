@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../Constants/colors.dart';
-import '../CustomWidgets/Headings.dart';
 import '../Routes/FadedRoute.dart';
 import 'DashboardPage.dart';
 
 class BookingCompletedPage extends StatefulWidget {
+  const BookingCompletedPage({super.key});
+
   @override
   _BookedScreenState createState() => _BookedScreenState();
 }

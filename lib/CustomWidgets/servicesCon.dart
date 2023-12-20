@@ -25,7 +25,7 @@ Widget serviceCon(
             ),
             width: MediaQuery.sizeOf(context).width * 0.2,
             height: MediaQuery.sizeOf(context).width * 0.2,
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             child: Image.asset(
               image,
               fit: BoxFit.scaleDown,

@@ -1,7 +1,4 @@
-import 'package:another_stepper/dto/stepper_data.dart';
-import 'package:another_stepper/widgets/another_stepper.dart';
 import 'package:barbershop/CustomWidgets/BookingStepper.dart';
-import 'package:barbershop/CustomWidgets/Headings.dart';
 import 'package:barbershop/Pages/SingleBookingPage.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +21,7 @@ class _BookingsPageState extends State<BookingsPage> {
       backgroundColor: black,
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +52,7 @@ class _BookingsPageState extends State<BookingsPage> {
                       shrinkWrap: true,
                       padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.02),
                       scrollDirection: Axis.vertical,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       children: [
 
                         activeBookingCon(
@@ -111,7 +108,7 @@ class _BookingsPageState extends State<BookingsPage> {
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height*0.02),
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       children: [
 
                         pastBookingCon(
@@ -169,10 +166,10 @@ class _BookingsPageState extends State<BookingsPage> {
           isScrollControlled: true,
             context: context,
             backgroundColor: Colors.black,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))),
+            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))),
             builder: (BuildContext context)
         {
-          return SingleBookingPage();
+          return const SingleBookingPage();
         });
       },
       child: Container(
@@ -230,7 +227,7 @@ class _BookingsPageState extends State<BookingsPage> {
                     ],
                   ),
 
-                  Spacer(),
+                  const Spacer(),
 
                   //Booking Number Column
                   Column(
@@ -270,10 +267,10 @@ class _BookingsPageState extends State<BookingsPage> {
             isScrollControlled: true,
             context: context,
             backgroundColor: Colors.black,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))),
+            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15))),
             builder: (BuildContext context)
             {
-              return SingleBookingPage();
+              return const SingleBookingPage();
             });
       },
       child: Container(
@@ -331,7 +328,7 @@ class _BookingsPageState extends State<BookingsPage> {
                     ],
                   ),
 
-                  Spacer(),
+                  const Spacer(),
 
                   //Booking Number Column
                   Column(

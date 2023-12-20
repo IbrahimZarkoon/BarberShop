@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import '../Constants/colors.dart';
 
 class TimerWidget extends StatefulWidget {
+  const TimerWidget({super.key});
+
   @override
   _TimerWidgetState createState() => _TimerWidgetState();
 }
@@ -21,7 +23,7 @@ class _TimerWidgetState extends State<TimerWidget> {
     _timerStreamController = StreamController<int>();
 
     // Set up a timer that runs every second
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_secondsLeft > 0) {
         _secondsLeft--;
         _timerStreamController.add(_secondsLeft);
