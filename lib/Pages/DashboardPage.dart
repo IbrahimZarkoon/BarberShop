@@ -1,5 +1,7 @@
 import 'package:barbershop/Pages/BookingsPage.dart';
 import 'package:barbershop/Pages/HomePage.dart';
+import 'package:barbershop/Pages/NotificationsPage.dart';
+import 'package:barbershop/Pages/ProfilePage.dart';
 import 'package:barbershop/Pages/StaffPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,8 +31,8 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
     const SizedBox(),
     //Book Now Tabs End
 
-    const SizedBox(),
-    const SizedBox()
+    const NotificationsPage(),
+    const ProfilePage()
   ];
 
   dynamic selected;
